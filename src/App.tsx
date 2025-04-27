@@ -9,8 +9,8 @@ function App() {
 
   return (
     <div className="flex min-h-screen">
-      <Sidebar onSelectPage={setSelectedPath} />
-      <PageViewer content={content} loading={loading} error={error} />
+      <Sidebar onSelectPage={setSelectedPath} selectedPage={selectedPath} />
+      <PageViewer content={content} loading={loading} error={error} selectedPage={selectedPath} />
     </div>
   );
 }

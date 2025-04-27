@@ -4,9 +4,10 @@ type PageViewerProps = {
   content: string;
   loading: boolean;
   error: string | null;
+  selectedPage: string | null;
 };
 
-const PageViewer = ({ content, loading, error }: PageViewerProps) => {
+const PageViewer = ({ content, loading, error, selectedPage }: PageViewerProps) => {
   if (loading) {
     return <div className="flex-1 p-8">Loading page...</div>;
   }
@@ -22,6 +23,7 @@ const PageViewer = ({ content, loading, error }: PageViewerProps) => {
   return (
     <div className="flex-1 p-8 prose max-w-none">
       <h1>Welcome to Acme</h1>
+      <h2>Selected Page: {selectedPage}</h2>
       <div className="mt-4">
         {parse(content)}
       </div>

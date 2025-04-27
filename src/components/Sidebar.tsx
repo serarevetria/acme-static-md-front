@@ -4,9 +4,10 @@ import AddPageModal from './AddPageModal';
 
 type SidebarProps = {
   onSelectPage: (path: string) => void;
+  selectedPage: string | null;
 };
 
-const Sidebar = ({ onSelectPage }: SidebarProps) => {
+const Sidebar = ({ onSelectPage, selectedPage }: SidebarProps) => {
   const { pages, loading, error, fetchAllPages } = usePages();
   const [showModal, setShowModal] = useState(false);
 
@@ -40,7 +41,9 @@ const Sidebar = ({ onSelectPage }: SidebarProps) => {
           <li
             key={page}
             onClick={() => onSelectPage(page.replace(/^\//, ''))}
-            className="p-2 hover:bg-gray-100 cursor-pointer rounded"
+            className={`p-2 hover:bg-gray-100 cursor-pointer rounded ${
+              selectedPage === page.replace(/^\//, '') ? 'bg-blue-100 text-blue-700' : ''
+            }`}
           >
             {page}
           </li>
