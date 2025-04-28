@@ -9,7 +9,7 @@
   "lint": "eslint .",
   "preview": "vite preview",
   "heroku-postbuild": "npm run build",
-  "start": "serve -s build"
+  "start": "serve -s dist --single"
 },
   "dependencies": {
     "html-react-parser": "^5.2.3",
